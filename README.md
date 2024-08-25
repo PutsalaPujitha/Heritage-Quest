@@ -35,5 +35,5 @@ HeritageQuest is an educational web-based tool designed to help users explore an
 Contributions are welcome! Feel free to submit a pull request or open an issue if you have suggestions or improvements.
 
 ## Acknowledgements
-This project was inspired by the rich cultural heritage of India and Nepal. The images and information were sourced from publicly available resources.
+This project was inspired by the rich cultural heritage of India. The images and information were sourced from publicly available resources.
 
