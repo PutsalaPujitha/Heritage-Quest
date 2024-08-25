@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('images/background1.jpg');
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .state-title {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .place-title {
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .place-info {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .place-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .navigation-buttons {
+            margin-top: 20px;
+        }
+
+        .navigation-buttons button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .navigation-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        .action-buttons {
+            margin-top: 30px;
+        }
+
+        .action-buttons button {
+            text-decoration: none;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            border-radius: 5px;
+            margin-right: 10px;
+           
+        }
+
+        .action-buttons button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="state-name" class="state-title"></h1>
+        <div id="place-details">
+            <h2 class="place-title"></h2>
+            <p class="place-info"></p>
+            <img class="place-image" src="" alt="Place Image">
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="navigation-buttons">
+            <button id="prevPlace">← Previous</button>
+            <button id="nextPlace">Next →</button>
+        </div>
+
+        <div class="action-buttons">
+            <button id="backToHome" onclick="location.href='index.html'">Back to Home</button>
+            <button id="knowMore" onclick="location.href='states.html '">Know More</button>
+        </div>
+        
+    </div>
+
+    <script>
+        // Function to extract state name from URL hash
+        function getStateFromHash() {
+            return window.location.hash.substring(1);
+        }
+
+        // Function to update state details on state.html page
+        function updateStateDetails() {
+            const state = getStateFromHash();
+            const places = [];
+
+            // Example data (replace with actual data for each state)
+            if (state === 'uttar-pradesh') {
+                document.getElementById('state-name').textContent = 'Uttar Pradesh';
+                places.push({
+                    title: 'Taj Mahal, Agra',
+                    info: 'The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.',
+                    image: 'images/tajj.jpg'
+                });
+                places.push({
+                    title: 'Fatehpur Sikri',
+                    info: 'Fatehpur Sikri is a city and a municipal board in Agra district in the state of Uttar Pradesh, India.',
+                    image: 'images/fathepur.jpg'
+                });
+                places.push({
+                    title: 'Varanasi',
+                    info: 'Varanasi, also known as Kashi, is one of the oldest cities in the world and a major religious hub in India.',
+                    image: 'images/vara.jpg'
+                });
+                places.push({
+                    title: 'Bara Imambara, Lucknow',
+                    info: 'The Bara Imambara is an historical shrine and monument in Lucknow, built by the fourth Nawab of Oudh, Asaf-ud-Daula.',
+                    image: 'images/bambara.jpg'
+                });
+                places.push({
+                    title: 'Ayodhya',
+                    info: 'Ayodhya is a major pilgrimage site in India, known for its connection to the epic Ramayana.',
+                    image: 'images/ayodhya.jpg'
+                });
+                // Add more places as needed
+            } else if (state === 'maharashtra') {
+                document.getElementById('state-name').textContent = 'Maharashtra';
+                places.push({
+                    title: 'Gateway of India, Mumbai',
+                    info: 'The Gateway of India is an arch-monument built in the early twentieth century in the city of Mumbai, in the Indian state of Maharashtra.',
+                    image: 'images/gate.jpg'
+                });
+                places.push({
+                    title: 'Ajanta Caves',
+                    info: 'The Ajanta Caves are rock-cut Buddhist cave monuments dating from the 2nd century BCE to about 480 CE in the Aurangabad district of Maharashtra.',
+                    image: 'images/ajantha.jpg'
+                });
+                places.push({
+                    title: 'Ellora Caves',
+                    info: 'The Ellora Caves are one of the largest rock-cut monastery-temple cave complexes in the world, featuring Buddhist, Hindu, and Jain monuments.',
+                    image: 'images/ellora.jpg'
+                });
+                places.push({
+                    title: 'Shaniwar Wada, Pune',
+                    info: 'Shaniwar Wada is a historical fortification in the city of Pune, Maharashtra, India. Built in 1732, it was the seat of the Peshwas of the Maratha Empire.',
+                    image: 'images/shal.jpg'
+                });
+                places.push({
+                    title: 'Marine Drive, Mumbai',
+                    info: 'Marine Drive is a 3.6 km long boulevard in South Mumbai in the city of Mumbai, India. It is a "C"-shaped six-lane concrete road along the coast.',
+                    image: 'images/mariney.jpg'
+                });
+                // Add more places as needed
+            } else if (state === 'rajasthan') {
+                document.getElementById('state-name').textContent = 'Rajasthan';
+                places.push({
+                    title: 'Hawa Mahal, Jaipur',
+                    info: 'Hawa Mahal is a palace in Jaipur, India. It is constructed of red and pink sandstone.',
+                    image: 'images/hawa.jpg'
+                });
+                places.push({
+                    title: 'Amber Fort, Jaipur',
+                    info: 'Amber Fort is a fort located in Amer, Rajasthan. It is known for its artistic style elements, including large ramparts and series of gates and cobbled paths.',
+                    image: 'images/amber.jpg'
+                });
+                places.push({
+                    title: 'City Palace, Udaipur',
+                    info: 'City Palace, located in Udaipur, is a complex of palaces that was built over a period of nearly 400 years, with contributions from several rulers of the Mewar dynasty.',
+                    image: 'images/city palace.jpg'
+                });
+                places.push({
+                    title: 'Jaisalmer Fort, Jaisalmer',
+                    info: 'Jaisalmer Fort is one of the largest fortifications in the world. It is situated in the city of Jaisalmer, in the Indian state of Rajasthan.',
+                    image: 'images/jaisalmar.jpg'
+                });
+
+                // Add more places as needed
+            }  else if (state === 'himachal-pradesh') {
+                document.getElementById('state-name').textContent = 'Himachal Pradesh';
+                places.push({
+                title: 'Shimla',
+                info: 'Shimla is the capital of the northern Indian state of Himachal Pradesh, in the Himalayan foothills.',
+                image: 'images/shimla.jpg'
+
+            
+            });
+            places.push({
+            title: 'Manali',
+            info: 'Manali is a high-altitude Himalayan resort town in India’s northern Himachal Pradesh state.',
+            image: 'images/manali.jpg'
+            });
+            places.push({
+            title: 'Dharamshala',
+            info: 'Dharamshala is the district headquarters of Kangra district in Himachal Pradesh. It is known for the residence of the Dalai Lama.',
+            image: 'images/darma shala.jpg'
+            });
+            places.push({
+            title: 'Kullu',
+            info: 'Kullu is a town on the banks of the Beas River in the Kullu Valley, known for its temples and festivals.',
+            image: 'images/kullu.jpg'
+            });
+        }else if (state === 'telangana') {
+            document.getElementById('state-name').textContent = 'Telangana';
+            places.push({
+                title: 'Charminar, Hyderabad',
+                info: 'The Charminar is a monument and mosque located in Hyderabad, Telangana, India. The structure was built in 1591 AD.',
+                image: 'images/charminar.jpg'
+            });
+            places.push({
+                title: 'Golconda Fort, Hyderabad',
+                info: 'Golconda Fort is a historic fort in Hyderabad, Telangana. It was the capital of the medieval Golconda Sultanate (c.1518–1687).',
+                image: 'images/golkonda.jpg'
+            });
+            places.push({
+                title: 'Ramoji Film City',
+                info: 'Ramoji Film City is an integrated film studio complex located in Hyderabad, India. It is the largest film city in the world.',
+                image: 'images/ramoji film city.jpg'
+            });
+            places.push({
+                title: 'Hussain Sagar Lake',
+                info: 'Hussain Sagar is a heart-shaped lake in Hyderabad, Telangana, built by Ibrahim Quli Qutb Shah in 1563.',
+                image: 'images/hussian.jpg'
+            });
+        }else if (state === 'andhra-pradesh') {
+            document.getElementById('state-name').textContent = 'Andhra Pradesh';
+            places.push({
+                title: 'Tirupati Temple',
+                info: 'Tirupati is a major pilgrimage and cultural city in the Chittoor district of Andhra Pradesh. It is famous for the Sri Venkateswara Temple, one of the richest pilgrimage centers in the world.',
+                image: 'images/tirupati.jpg'
+            });
+            places.push({
+                title: 'Araku Valley',
+                info: 'Araku Valley is a hill station and valley region in the southeastern Indian state of Andhra Pradesh. It is known for its coffee plantations.',
+                image: 'images/araku valley.jpg'
+            });
+            places.push({
+                title: 'Borra Caves',
+                info: 'Borra Caves are located in the Ananthagiri hills of the Araku Valley and are known for their stunning stalactites and stalagmites formations.',
+                image: 'images/borra.jpg'
+            });
+            places.push({
+                title: 'Vijayawada Kanaka Durga Temple',
+                info: 'The Kanaka Durga Temple is a famous Hindu temple dedicated to Goddess Kanaka Durga located in Vijayawada, Andhra Pradesh.',
+                image: 'images/vjy.jpg'
+            });
+        }else if (state === 'assam') {
+            document.getElementById('state-name').textContent = 'Assam';
+            places.push({
+                title: 'Kaziranga National Park',
+                info: 'Kaziranga National Park is a protected area in the northeast Indian state of Assam. It is home to tigers, elephants, and the world’s largest population of Indian one-horned rhinoceroses.',
+                image: 'images/park.jpg'
+            });
+            places.push({
+                title: 'Kamakhya Temple, Guwahati',
+                info: 'The Kamakhya Temple is a Hindu temple dedicated to the mother goddess Kamakhya, located on the Nilachal Hill in Guwahati, Assam.',
+                image: 'images/kamakhya.jpg'
+            });
+            places.push({
+                title: 'Majuli Island',
+                info: 'Majuli is a river island in the Brahmaputra River, Assam. It is known for its scenic beauty and cultural heritage.',
+                image: 'images/majuli.jpg'
+            });
+            places.push({
+                title: 'Manas National Park',
+                info: 'Manas National Park is a UNESCO World Heritage site, a Project Tiger reserve, an elephant reserve, and a biosphere reserve in Assam.',
+                image: 'images/manas.jpg'
+            });
+        }else if (state === 'jammuandkashmir') {
+            document.getElementById('state-name').textContent = 'Jammu and Kashmir';
+            places.push({
+                title: 'Dal Lake, Srinagar',
+                info: 'Dal Lake is a famous lake in Srinagar, Jammu and Kashmir, known for its houseboats and shikaras.',
+                image: 'images/dal.jpg'
+            });
+            places.push({
+                title: 'Gulmarg',
+                info: 'Gulmarg is a town, a hill station, a popular skiing destination, and a notified area committee in the Baramulla district of Jammu and Kashmir.',
+                image: 'images/gulmarg.jpeg'
+            });
+            places.push({
+                title: 'Vaishno Devi, Katra',
+                info: 'Vaishno Devi is a manifestation of the Hindu Mother Goddess, and the temple is located in Katra, Jammu and Kashmir.',
+                image: 'images/vaishnavo.jpg'
+            });
+            places.push({
+                title: 'Leh-Ladakh',
+                info: 'Leh is a town in the Leh district of the Indian state of Ladakh. Ladakh is known for its scenic mountain views and Buddhist monasteries.',
+                image: 'images/leh.jpg'
+            });
+        }else if (state === 'tamil-nadu') {
+            document.getElementById('state-name').textContent = 'Tamil Nadu';
+            places.push({
+                title: 'Meenakshi Temple, Madurai',
+                info: 'The Meenakshi Temple is a historic Hindu temple located on the southern bank of the Vaigai River in the temple city of Madurai, Tamil Nadu.',
+                image: 'images/meena.jpg'
+            });
+            places.push({
+                title: 'Marina Beach, Chennai',
+                info: 'Marina Beach is a natural urban beach along the Bay of Bengal in Chennai, Tamil Nadu.',
+                image: 'images/marina.jpg'
+            });
+            places.push({
+                title: 'Ooty',
+                info: 'Ooty, also known as Udhagamandalam, is a resort town in the Western Ghats mountains, in southern India’s Tamil Nadu state.',
+                image: 'images/ooty.jpg'
+            });
+            places.push({
+                title: 'Mahabalipuram',
+                info: 'Mahabalipuram is an ancient historic town and a UNESCO World Heritage site in Tamil Nadu, famous for its group of monuments and temples.',
+                image: 'images/mahabalipuram.jpg'
+            });
+        }else if (state === 'punjab') {
+            document.getElementById('state-name').textContent = 'Punjab';
+            places.push({
+                title: 'Golden Temple, Amritsar',
+                info: 'The Golden Temple, also known as Harmandir Sahib, is a gurdwara located in the city of Amritsar, Punjab.',
+                image: 'images/golden.jpg'
+            });
+            places.push({
+                title: 'Jallianwala Bagh, Amritsar',
+                info: 'Jallianwala Bagh is a public garden in Amritsar, Punjab, and houses a memorial of national importance.',
+                image: 'images/jallianwala.jpg'
+            });
+            places.push({
+                title: 'Wagah Border',
+                info: 'Wagah Border is a border crossing between India and Pakistan, known for its daily beating retreat ceremony.',
+                image: 'images/wagah.jpg'
+            });
+            places.push({
+                title: 'Anandpur Sahib',
+                info: 'Anandpur Sahib is a city in Rupnagar district (Ropar) in the state of Punjab, India, and is one of the most important sacred places for Sikhs.',
+                image: 'images/anandpur.jpg'
+            });
+        }else if (state === 'gujarat') {
+            document.getElementById('state-name').textContent = 'Gujarat';
+            places.push({
+                title: 'Statue of Unity',
+                info: 'The Statue of Unity is a colossal statue of Indian statesman and independence activist Vallabhbhai Patel, located in the state of Gujarat.',
+                image: 'images/unity.jpg'
+            });
+            places.push({
+                title: 'Gir National Park',
+                info: 'Gir National Park is a wildlife sanctuary in Gujarat, western India, and is home to the Asiatic lion.',
+                image: 'images/gir-national-park.jpg'
+            });
+            places.push({
+                title: 'Rann of Kutch',
+                info: 'The Rann of Kutch is a large area of salt marshes located in the Thar Desert in the Kutch District of the state of Gujarat.',
+                image: 'images/run of kutch.jpg'
+            });
+            
+        }else if (state === 'madhya-pradesh') {
+            document.getElementById('state-name').textContent = 'Madhya Pradesh';
+            places.push({
+                title: 'Khajuraho Temples',
+                info: 'The Khajuraho Group of Monuments is a group of Hindu temples and Jain temples in Madhya Pradesh, famous for their nagara-style architectural symbolism.',
+                image: 'images/khajuraho.jpg'
+            });
+           
+            places.push({
+                title: 'Sanchi Stupa',
+                info: 'Sanchi Stupa is a Buddhist complex, famous for its Great Stupa, on a hilltop at Sanchi Town in Raisen District of the state of Madhya Pradesh.',
+                image: 'images/sanchi.jpg'
+            });
+            places.push({
+                title: 'Bhimbetka Rock Shelters',
+                info: 'The Bhimbetka rock shelters are an archaeological site in central India that spans the prehistoric Paleolithic and Mesolithic periods.',
+                image: 'images/rock.jpg'
+            });
+        }else if (state === 'west-bengal') {
+            document.getElementById('state-name').textContent = 'West Bengal';
+            places.push({
+                title: 'Victoria Memorial, Kolkata',
+                info: 'The Victoria Memorial is a large marble building in Kolkata, West Bengal, which was built between 1906 and 1921.',
+                image: 'images/victoria.jpg'
+            });
+            places.push({
+                title: 'Sundarbans',
+                info: 'The Sundarbans is a mangrove area in the delta formed by the confluence of the Ganges, Brahmaputra and Meghna Rivers in the Bay of Bengal.',
+                image: 'images/sundarbans.jpg'
+            });
+            places.push({
+                title: 'Darjeeling',
+                info: 'Darjeeling is a town in India’s West Bengal state, in the Himalayan foothills.',
+                image: 'images/dargelling.jpg'
+            });
+            places.push({
+                title: 'Howrah Bridge, Kolkata',
+                info: 'The Howrah Bridge is a cantilever bridge with a suspended span over the Hooghly River in West Bengal, India.',
+                image: 'images/howrah.jpg'
+            });
+        }else if (state === 'bihar') {
+            document.getElementById('state-name').textContent = 'Bihar';
+            places.push({
+                title: 'Mahabodhi Temple, Bodh Gaya',
+                info: 'The Mahabodhi Temple is a UNESCO World Heritage Site and a Buddhist temple in Bodh Gaya, marking the location where Gautama Buddha is said to have attained enlightenment.',
+                image: 'images/mahabodhi.jpg'
+            });
+            places.push({
+                title: 'Nalanda University',
+                info: 'Nalanda University was an ancient center of higher learning in Bihar, India.',
+                image: 'images/nalanda.jpg'
+            });
+            
+            places.push({
+                title: 'Rajgir',
+                info: 'Rajgir is an ancient city in Bihar, famous for its association with Mahavira and Buddha.',
+                image: 'images/rajgir.jpg'
+            });
+        }else if (state === 'kerala') {
+            document.getElementById('state-name').textContent = 'Kerala';
+            places.push({
+                title: 'Alleppey (Alappuzha)',
+                info: 'Alleppey, officially named Alappuzha, is a city in the Indian state of Kerala known for its backwaters and houseboat cruises.',
+                image: 'images/alleppey.jpg'
+            });
+            places.push({
+                title: 'Munnar',
+                info: 'Munnar is a town and hill station located in the Idukki district of the southwestern Indian state of Kerala.',
+                image: 'images/munnar.jpg'
+            });
+            places.push({
+                title: 'Thekkady',
+                info: 'Thekkady is a town near Periyar National Park, an important tourist attraction in the Kerala state of India.',
+                image: 'images/thekkady.jpg'
+            });
+            places.push({
+                title: 'Kochi',
+                info: 'Kochi, also known as Cochin, is a major port city on the south-west coast of India bordering the Laccadive Sea.',
+                image: 'images/kochi.jpg'
+            });
+        }else if (state === 'haryana') {
+            document.getElementById('state-name').textContent = 'Haryana';
+            places.push({
+                title: 'Kingdom of Dreams, Gurgaon',
+                info: 'Kingdom of Dreams is India’s first live entertainment, theatre, and leisure destination, located in Gurgaon, Haryana.',
+                image: 'images/king of dreams.jpg'
+            });
+            places.push({
+                title: 'Kurukshetra',
+                info: 'Kurukshetra is a city in the Indian state of Haryana, known as the land of the Bhagavad Gita.',
+                image: 'images/kurukshetra.jpg'
+            });
+            places.push({
+                title: 'Pinjore Gardens',
+                info: 'Pinjore Gardens, also known as Yadavindra Gardens, is located in Pinjore, near Chandigarh in the state of Haryana.',
+                image: 'images/gardens.jpg'
+            });
+            
+        }else if (state === 'odisha') {
+            document.getElementById('state-name').textContent = 'Odisha';
+            places.push({
+                title: 'Konark Sun Temple',
+                info: 'The Konark Sun Temple is a 13th-century CE Sun Temple at Konark about 35 kilometres northeast from Puri on the coastline of Odisha, India.',
+                image: 'images/konark.jpg'
+            });
+            places.push({
+                title: 'Puri Beach',
+                info: 'Puri Beach is a beach in the city of Puri in the state of Odisha, India.',
+                image: 'images/puri.jpg'
+            });
+            places.push({
+                title: 'Jagannath Temple, Puri',
+                info: 'The Jagannath Temple in Puri is a famous Hindu temple dedicated to Jagannath, a form of Vishnu, located on the eastern coast of India, at Puri in the state of Odisha.',
+                image: 'images/puri_jaganath.jpg'
+            });
+            places.push({
+                title: 'Chilika Lake',
+                info: 'Chilika Lake is a brackish water lagoon, spread over the Puri, Khurda, and Ganjam districts of Odisha state on the east coast of India, at the mouth of the Daya River, flowing into the Bay of Bengal.',
+                image: 'images/chilike.jpg'
+            });
+        }else if (state === 'nepal') {
+            document.getElementById('state-name').textContent = 'Nepal';
+            places.push({
+                title: 'Mount Everest',
+                info: 'Mount Everest, known in Nepali as Sagarmatha and in Tibetan as Chomolungma, is Earth\'s highest mountain above sea level, located in the Mahalangur Himal sub-range of the Himalayas.',
+                image: 'images/mount.jpg'
+            });
+            places.push({
+                title: 'Lumbini',
+                info: 'Lumbini is a Buddhist pilgrimage site in the Rupandehi District of Province No. 5 in Nepal.',
+                image: 'images/lumbini.jpg'
+            });
+            places.push({
+                title: 'Pokhara',
+                info: 'Pokhara is a city on Phewa Lake, in central Nepal. It’s known as a gateway to the Annapurna Circuit, a popular trail in the Himalayas.',
+                image: 'images/pokhara.jpg'
+            });
+            places.push({
+                title: 'Boudhanath Stupa',
+                info: 'Boudhanath Stupa is one of the largest stupas in Nepal and is considered one of the holiest Buddhist sites.',
+                image: 'images/boudhanath.jpg'
+            });
+        }else if (state === 'karnataka') {
+            document.getElementById('state-name').textContent = 'Karnataka';
+            places.push({
+                title: 'Mysore Palace, Mysore',
+                info: 'Mysore Palace is a historical palace and a royal residence at Mysore in the Indian State of Karnataka.',
+                image: 'images/mysore.jpg'
+            });
+            places.push({
+                title: 'Hampi',
+                info: 'Hampi is an ancient village in the south Indian state of Karnataka. It’s dotted with numerous ruined temple complexes from the Vijayanagara Empire.',
+                image: 'images/hampi.jpg'
+            });
+            places.push({
+                title: 'Gol Gumbaz, Bijapur',
+                info: 'Gol Gumbaz is the mausoleum of Mohammed Adil Shah, Sultan of Bijapur. The tomb, located in Bijapur, Karnataka in India, was completed in 1656.',
+                image: 'images/gol.jpg'
+            });
+            places.push({
+                title: 'Coorg (Kodagu)',
+                info: 'Coorg, also known as Kodagu, is a rural district in the southwest Indian state of Karnataka. In the area’s north, Madikeri Fort has 2 life-size elephant statues at its entrance, plus a Gothic-style church with a museum on its grounds.',
+                image: 'images/coorg.jpg'
+            });
+        }
+        
+ 
+            // Add more states and places as needed
+
+            return places;
+        }
+
+        let currentPlaceIndex = 0;
+        const places = updateStateDetails();
+
+        function showPlace(index) {
+            const place = places[index];
+            document.querySelector('.place-title').textContent = place.title;
+            document.querySelector('.place-info').textContent = place.info;
+            document.querySelector('.place-image').src = place.image;
+        }
+
+        document.getElementById('prevPlace').onclick = function() {
+            if (currentPlaceIndex > 0) {
+                currentPlaceIndex--;
+                showPlace(currentPlaceIndex);
+            }
+        };
+
+        document.getElementById('nextPlace').onclick = function() {
+            if (currentPlaceIndex < places.length - 1) {
+                currentPlaceIndex++;
+                showPlace(currentPlaceIndex);
+            }
+        };
+
+        // Call updateStateDetails function when the page loads
+        window.onload = function () {
+            showPlace(currentPlaceIndex); // Show the first place by default
+        };
+    </script>
+</body>
+</html>
+

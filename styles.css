@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover India's Heritage</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .title {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Map container */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 90vh; /* Adjust height to make the map fully visible */
+            overflow: hidden;
+            background-image: url('india-map.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* State areas (invisible but clickable) */
+        .state-area {
+            position: absolute;
+            cursor: pointer;
+            width: 1%; /* Smaller size for the bubbles */
+            height: 2%;
+            background-color: rgba(0, 0, 0, 0.7); /* Black bubble */
+            border-radius: 50%;
+        }
+        
+        /* Example styles for states */
+        #uttar-pradesh {
+            top: 35%;
+            left: 45%;
+        }
+
+        #maharashtra {
+            top: 60%;
+            left: 30%;
+        }
+
+        #rajasthan {
+            top: 25%;
+            left: 35%;
+        }
+
+        #karnataka {
+            top: 75%; /* Adjusted to place accurately */
+            left: 35%; /* Adjusted to place accurately */
+        }
+
+        /* Add more state areas as needed */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Discover India's Heritage</h1>
+        <div class="map-container">
+            <!-- Overlay divs for clickable states -->
+            <div id="uttar-pradesh" class="state-area" onclick="navigateToState('uttar-pradesh')" title="Uttar Pradesh"></div>
+            <div id="maharashtra" class="state-area" onclick="navigateToState('maharashtra')" title="Maharashtra"></div>
+            <div id="rajasthan" class="state-area" onclick="navigateToState('rajasthan')" title="Rajasthan"></div>
+            <div id="karnataka" class="state-area" onclick="navigateToState('karnataka')" title="Karnataka"></div>
+            <!-- Add more state areas as needed -->
+        </div>
+        <p>Explore the rich heritage of India by clicking on a state.</p>
+    </div>
+
+    <script>
+        // Function to navigate to state.html with state ID
+        function navigateToState(stateId) {
+            window.location.href = `state.html#${stateId}`;
+        }
+    </script>
+</body>
+</html>
